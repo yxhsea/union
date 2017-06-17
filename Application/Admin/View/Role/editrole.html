@@ -1,0 +1,70 @@
+<extend name="Public/common" />
+<block name="body">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>编辑角色</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="form-horizontal">
+                            <input type="hidden" name="role_id" value="{$role.id}">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">角色名称</label>
+
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="name" value="{$role.name}" placeholder="请填写角色名称" id="name">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">权限分配</label>
+
+                                <div class="col-sm-10">
+                                    <volist name="auth" id="auth">
+                                        <div class="checkbox i-checks">
+                                            <label>
+                                                {$auth.level}<input type="checkbox" name="auth" value="{$auth.id}" <?php if(in_array($auth['id'],$role['auth'])){?> checked="checked" <?php } ?> ><i></i>{$auth.name}
+                                            </label>
+                                        </div>
+                                    </volist>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    状态
+                                </label>
+
+                                <div class="col-sm-10">
+                                    <div class="radio i-checks">
+                                        <label><input type="radio" value="0" name="status" <if condition="($role['status'] eq 0)"> checked="checked" </if> > <i></i> 启用</label>
+                                        <label><input type="radio" value="1" name="status" <if condition="($role['status'] eq 1)"> checked="checked" </if> > <i></i>禁用</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+
+                            <div class="form-group">
+                                <div class="col-sm-4 col-sm-offset-2">
+                                    <button class="btn btn-primary" id="save">保存内容</button>
+                                    <button class="btn btn-white" type="button" onclick="history.go(-1);">返回</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        //定义全局变量
+        var GV = {
+            role_editrole : "{:U('Role/editRole')}"
+        };
+    </script>
+    <script src="__JS__/http/role/editrole.js"></script>
+</block>

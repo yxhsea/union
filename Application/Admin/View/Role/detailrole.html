@@ -1,0 +1,59 @@
+<extend name="Public/common" />
+<block name="body">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="ibox float-e-margins">
+        <div class="ibox-content">
+            <div class="" style="text-align: center;">
+                <h3>
+                    运动会详情
+                </h3>
+            </div>
+            <table class="table table-hover">
+                <tbody>
+                <tr>
+                    <th>运动会主题</th>
+                    <td>{$sports.theme}</td>
+                </tr>
+                <tr>
+                    <th>运动会时间</th>
+                    <td>{$sports.start_time}至{$sports.end_time}</td>
+                </tr>
+                <tr>
+                    <th>
+                       运动会地点
+                    </th>
+                    <td>{$sports.address}</td>
+                </tr>
+                <tr>
+                    <th>
+                        主办方
+                    </th>
+                    <td>{$sports.host}</td>
+                </tr>
+                <tr>
+                    <th>
+                        承办方
+                    </th>
+                    <td>{$sports.undertake}</td>
+                </tr>
+                <tr>
+                    <th>
+                        负责人
+                    </th>
+                    <td>{$sports.header}</td>
+                </tr>
+                <tr>
+                    <th>负责人联系方式</th>
+                    <td>{$sports.phone}</td>
+                </tr>
+                <tr>
+                    <th>运动会简介</th>
+                    <td>{$sports.introduct}</td>
+                </tr>
+                </tbody>
+            </table>
+            <button type="button" class="btn btn-outline btn-primary btn-xs" onclick="history.go(-1);">返回</button>
+        </div>
+    </div>
+</div>
+</block>

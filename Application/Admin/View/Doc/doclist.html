@@ -1,0 +1,62 @@
+<extend name="Public/common" />
+<block name="body">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>文档列表</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-sm-3" style="float: right;">
+                            <!-- <div class="input-group">
+                                <input type="text" placeholder="请输入文件名" class="input-sm form-control"> <span class="input-group-btn">
+                                <button type="button" class="btn btn-sm btn-primary"> 搜索</button> </span>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th>ID</th>
+                                <th>文件名</th>
+                                <th>文件大小</th>
+                                <th>上传时间</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <volist name="doclist" id="doclist">
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" class="i-checks" name="id[]" value="{$doclist.id}">
+                                    </td>
+                                    <td>{$doclist.id}</td>
+                                    <td><a href="{:U('doc/download',['id'=>$doclist['id']])}" title="点击下载">{$doclist.name}</a></td>
+                                    <td>
+                                        {$doclist.size}
+                                    </td>
+                                    <td>
+                                        {$doclist.create_time|date="Y-m-d H:i:s",###}
+                                    </td>
+                                    <td>
+                                        <a href="{:U('doc/download',['id'=>$doclist['id']])}"><button type="button" class="btn btn-outline btn-default btn-xs">下载</button></a>
+                                        <a href="{:U('doc/delete',['id'=>$doclist['id'],'tableName'=>'Doc'])}" class="ajax-delete"><button type="button" class="btn btn-outline btn-danger btn-xs">删除</button></a>                                    </td>
+                                    </td>
+                                </tr>
+                            </volist>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="text-align: center;">{$page}</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="__JS__/http/ajax.js"></script>
+</block>

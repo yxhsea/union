@@ -1,0 +1,203 @@
+<extend name="Public/common" />
+<block name="body">
+<div class="wrapper wrapper-content animated fadeIn">
+    <div class="row" style="width: 96%;margin: auto;">
+        <div class="tabs-container">
+            <ul class="nav nav-tabs">
+                <if condition="($reward['type'] eq 0)">
+                    <li class="active"><a data-toggle="tab" href="#tab-1" aria-expanded="true">编辑奖励记录</a>
+                    </li>
+                </if>
+                <if condition="($reward['type'] eq 1)">
+                    <li class="active"><a data-toggle="tab" href="#tab-2" aria-expanded="false">编辑处罚记录</a>
+                    </li>
+                </if>
+            </ul>
+            <div class="tab-content">
+                <if condition="($reward['type'] eq 0)">
+                    <div id="tab-1" class="tab-pane active">
+                    <div class="panel-body">
+                        <div class="form-horizontal">
+                            <input type="hidden" value="{$reward.id}" name="id" id="a_id" >
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">身份证号码</label>
+
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="member_id_card" value="{$reward.member_id_card}" placeholder="请填写会员身份证号码" id="a_member_id_card">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">会员姓名</label>
+
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="member_name" value="{$reward.member_name}" placeholder="请填写会员姓名" id="a_member_name">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">奖励时间</label>
+
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="reward_time" value="{$reward.reward_time}" placeholder="请填写奖励时间" id="a_reward_time" onclick="laydate();">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">奖励项目</label>
+
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="reward_title" value="{$reward.reward_title}" placeholder="请填写奖励项目" id="a_reward_title">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">奖励级别</label>
+
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="reward_level" value="{$reward.reward_level}" placeholder="请填写奖励级别" id="a_reward_level">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">授予单位</label>
+
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="reward_unit" value="{$reward.reward_unit}" placeholder="请填写授予单位" id="a_reward_unit">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">授予原因</label>
+
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="reward_reason" value="{$reward.reward_reason}" placeholder="请填写授予原因" id="a_reward_reason">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">备注</label>
+
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="reward_note" value="{$reward.reward_note}" placeholder="请填写备注" id="a_reward_note">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+
+                            <div class="form-group">
+                                <div class="col-sm-4 col-sm-offset-2">
+                                    <button class="btn btn-primary" id="a_save">保存内容</button>
+                                    <button class="btn btn-white" type="button" onclick="history.go(-1);">返回</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                </if>
+                <if condition="($reward['type'] eq 1)">
+                    <div id="tab-2" class="tab-pane active">
+                    <div class="panel-body">
+                        <div class="form-horizontal">
+                            <input type="hidden" value="{$reward.id}" name="id" id="b_id" >
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">身份证号码</label>
+
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="member_id_card" value="{$reward.member_id_card}" placeholder="请填写会员身份证号码" id="b_member_id_card">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">会员姓名</label>
+
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="member_name" value="{$reward.member_name}" placeholder="请填写会员姓名" id="b_member_name">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">处罚时间</label>
+
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="reward_time" value="{$reward.reward_time}" placeholder="请填写处罚时间" id="b_reward_time" onclick="laydate();">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">处罚项目</label>
+
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="reward_title" value="{$reward.reward_title}" placeholder="请填写处罚项目" id="b_reward_title">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">处罚级别</label>
+
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="reward_level" value="{$reward.reward_level}" placeholder="请填写处罚级别" id="b_reward_level">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">处罚单位</label>
+
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="reward_unit" value="{$reward.reward_unit}" placeholder="请填写处罚单位" id="b_reward_unit">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">处罚原因</label>
+
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="reward_reason" value="{$reward.reward_reason}" placeholder="请填写处罚原因" id="b_reward_reason">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">备注</label>
+
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="reward_note" value="{$reward.reward_note}" placeholder="请填写备注" id="b_reward_note">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+
+                            <div class="form-group">
+                                <div class="col-sm-4 col-sm-offset-2">
+                                    <button class="btn btn-primary" id="b_save">保存内容</button>
+                                    <button class="btn btn-white" type="button" onclick="history.go(-1);">返回</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </if>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    //定义全局变量
+    var GV = {
+        reward_editreward : "{:U('Reward/editReward')}"
+    }
+</script>
+<script src="__JS__/http/reward/editreward.js"></script>
+</block>

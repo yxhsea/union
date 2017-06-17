@@ -1,0 +1,146 @@
+<extend name="Public/common" />
+<block name="body">
+<div class="wrapper wrapper-content animated fadeIn">
+    <div class="row" style="width: 96%;margin: auto;">
+        <div class="tabs-container">
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#tab-1" aria-expanded="true">奖励记录</a>
+                </li>
+                <li class=""><a data-toggle="tab" href="#tab-2" aria-expanded="false">处罚记录</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div id="tab-1" class="tab-pane active">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-3" style="float: right;">
+                                <!-- <div class="input-group">
+                                    <input type="text" placeholder="请输入会员姓名" class="input-sm form-control"> <span class="input-group-btn">
+                            <button type="button" class="btn btn-sm btn-primary"> 搜索</button> </span>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>姓名</th>
+                                    <th>身份证号码</th>
+                                    <th>奖励名称</th>
+                                    <th>奖励时间</th>
+                                    <th>奖励理由</th>
+                                    <th>授予单位</th>
+                                    <th>奖励级别</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <volist name="a_reward" id="a_reward">
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" class="i-checks" name="id[]" value="{$a_reward.id}">
+                                        </td>
+                                        <td>{$a_reward.member_name}</td>
+                                        <td>
+                                            {$a_reward.member_id_card}
+                                        </td>
+                                        <td>
+                                            {$a_reward.reward_title}
+                                        </td>
+                                        <td>
+                                            {$a_reward.reward_time}
+                                        </td>
+                                        <td>
+                                            {$a_reward.reward_reason}
+                                        </td>
+                                        <td>
+                                            {$a_reward.reward_unit}
+                                        </td>
+                                        <td>
+                                            {$a_reward.reward_level}
+                                        </td>
+                                        <td>
+                                            <a href="{:U('Reward/detailReward',['id'=>$a_reward['id']])}"><button type="button" class="btn btn-outline btn-primary btn-xs">详情</button></a>
+                                            <a href="{:U('Reward/editReward',['id'=>$a_reward['id']])}"><button type="button" class="btn btn-outline btn-default btn-xs">编辑</button></a>
+                                            <a href="{:U('User/delete',['id'=>$a_reward['id'],'tableName'=>'Reward'])}" class="ajax-delete"><button type="button" class="btn btn-outline btn-warning btn-xs">删除</button></a>
+                                        </td>
+                                    </tr>
+                                </volist>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div style="text-align: center;">{$a_Page}</div>
+                    </div>
+
+                </div>
+                <div id="tab-2" class="tab-pane">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-3" style="float: right;">
+                                <div class="input-group">
+                                    <input type="text" placeholder="请输入会员姓名" class="input-sm form-control"> <span class="input-group-btn">
+                            <button type="button" class="btn btn-sm btn-primary"> 搜索</button> </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>姓名</th>
+                                    <th>身份证号码</th>
+                                    <th>处罚名称</th>
+                                    <th>处罚时间</th>
+                                    <th>处罚理由</th>
+                                    <th>处罚单位</th>
+                                    <th>处罚级别</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <volist name="b_reward" id="b_reward">
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" class="i-checks" name="id[]" value="{$b_reward.id}">
+                                        </td>
+                                        <td>{$b_reward.member_name}</td>
+                                        <td>
+                                            {$b_reward.member_id_card}
+                                        </td>
+                                        <td>
+                                            {$b_reward.reward_title}
+                                        </td>
+                                        <td>
+                                            {$b_reward.reward_time}
+                                        </td>
+                                        <td>
+                                            {$b_reward.reward_reason}
+                                        </td>
+                                        <td>
+                                            {$b_reward.reward_unit}
+                                        </td>
+                                        <td>
+                                            {$b_reward.reward_level}
+                                        </td>
+                                        <td>
+                                            <a href="{:U('Reward/detailReward',['id'=>$b_reward['id']])}"><button type="button" class="btn btn-outline btn-primary btn-xs">详情</button></a>
+                                            <a href="{:U('Reward/editReward',['id'=>$b_reward['id']])}"><button type="button" class="btn btn-outline btn-default btn-xs">编辑</button></a>
+                                            <a href="{:U('User/delete',['id'=>$b_reward['id'],'tableName'=>'Reward'])}" class="ajax-delete"><button type="button" class="btn btn-outline btn-warning btn-xs">删除</button></a>
+                                        </td>
+                                    </tr>
+                                </volist>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div style="text-align: center;">{$b_Page}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="__JS__/http/ajax.js"></script>
+<script src="__JS__/http/reward/rewardlist.js"></script>
+</block>

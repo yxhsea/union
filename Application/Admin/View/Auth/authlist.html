@@ -1,0 +1,88 @@
+<extend name="Public/common" />
+<block name="body">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>权限列表</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-sm-5 m-b-xs">
+                            <a href="{:U('Auth/addAuth')}">
+                                <button class="btn btn-primary btn-sm" type="button"><i class="fa fa-plus-square"></i>&nbsp;&nbsp;添加权限</button>
+                            </a>
+                        </div>
+<!--                        <div class="col-sm-3" style="float: right;">
+                            <div class="input-group">
+                                <input type="text" placeholder="请输入权限名称" class="input-sm form-control"> <span class="input-group-btn">
+                                <button type="button" class="btn btn-sm btn-primary"> 搜索</button> </span>
+                            </div>
+                        </div>-->
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <!--<th></th>-->
+                                <th>ID</th>
+                                <th>排序</th>
+                                <th>权限名称</th>
+                                <th>控制器方法</th>
+                                <th>状态</th>
+                                <th>创建时间</th>
+                                <th>修改时间</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <volist name="authlist" id="authlist">
+                                <tr>
+                                    <!--<td>
+                                        <input type="checkbox" class="i-checks" name="id[]" value="{$authlist.id}">
+                                    </td>-->
+                                    <td>{$authlist.id}</td>
+                                    <td>{$authlist.sort}</td>
+                                    <td>
+                                        {$authlist.level}{$authlist.name}
+                                    </td>
+                                    <td>
+                                        {$authlist.path}
+                                    </td>
+                                    <td>
+                                        <if condition="($authlist.status eq 0)"><span style="color: green;">启用</span></if>
+                                        <if condition="($authlist.status eq 1)"><span style="color: red;">禁用</span></if>
+                                    </td>
+                                    <td>
+                                        {$authlist.create_time|date="Y-m-d H:i:s",###}
+                                    </td>
+                                    <td>
+                                        <if condition="($authlist['update_time'] eq '')">
+                                            暂无记录
+                                            <else/>
+                                            {$authlist.create_time|date="Y-m-d H:i:s",###}
+                                        </if>
+                                    </td>
+                                    <td>
+                                        <if condition="$authlist['status'] eq 0">
+                                            <a href="{:U('Auth/setStatus',['id'=>$authlist['id'],'tableName'=>'Auth','status'=>1])}" class="ajax-status"><button type="button" class="btn btn-outline btn-danger btn-xs">禁用</button></a>
+                                            <else/>
+                                            <a href="{:U('Auth/setStatus',['id'=>$authlist['id'],'tableName'=>'Auth','status'=>0])}" class="ajax-status"><button type="button" class="btn btn-outline btn-primary btn-xs">启用</button></a>
+                                        </if>
+                                        <a href="{:U('Auth/editAuth',['id'=>$authlist['id']])}"><button type="button" class="btn btn-outline btn-default btn-xs">编辑</button></a>
+                                        <a href="{:U('Auth/delete',['id'=>$authlist['id'],'tableName'=>'Auth'])}" class="ajax-delete"><button type="button" class="btn btn-outline btn-warning btn-xs">删除</button></a>                                    </td>
+                                </tr>
+                            </volist>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="text-align: center;">{$page}</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="__JS__/http/ajax.js"></script>
+</block>

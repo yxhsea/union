@@ -1,0 +1,75 @@
+<extend name="Public/common" />
+<block name="body">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>分类列表</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-sm-5 m-b-xs">
+                            <a href="{:U('News/addcate')}">
+                            <button class="btn btn-primary btn-sm" type="button"><i class="fa fa-plus-square"></i>&nbsp;&nbsp;添加分类</button>
+                            </a>
+                        </div>
+                        <div class="col-sm-3" style="float: right;">
+                            <!-- <div class="input-group">
+                                <input type="text" placeholder="请输入分类名称" class="input-sm form-control"> <span class="input-group-btn">
+                                <button type="button" class="btn btn-sm btn-primary"> 搜索</button> </span>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+
+                                <th></th>
+                                <th>分类名称</th>
+                                <th>创建时间</th>
+                                <th>更新时间</th>
+                                <th>状态</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <volist name="catelist" id="catelist">
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" class="i-checks" name="id[]" value="{$catelist.id}">
+                                    </td>
+                                    <td>{$catelist.level}{$catelist.title}</td>
+                                    <td>{$catelist.create_time|date="Y-m-d H:i:s",###}</td>
+                                    <td><if condition="($catelist['update_time'] != null)">{$catelist.update_time|date="Y-m-d H:i:s",###}</if></td>
+                                    <td>
+                                        <if condition="$catelist['status'] eq 0">
+                                            <span style="color: green">启用</span>
+                                        <else/>
+                                            <span style="color: red">禁用</span>
+                                        </if>
+                                    </td>
+                                    <td>
+                                        <if condition="$catelist['status'] eq 0">
+                                            <a href="{:U('News/setStatus',['id'=>$catelist['id'],'tableName'=>'Category','status'=>1])}" class="ajax-status"><button type="button" class="btn btn-outline btn-danger btn-xs">禁用</button></a>
+                                            <else/>
+                                            <a href="{:U('News/setStatus',['id'=>$catelist['id'],'tableName'=>'Category','status'=>0])}" class="ajax-status"><button type="button" class="btn btn-outline btn-primary btn-xs">启用</button></a>
+                                        </if>
+                                        <a href="{:U('News/editcate',['id'=>$catelist['id']])}"><button type="button" class="btn btn-outline btn-default btn-xs">编辑</button></a>
+                                        <a href="{:U('News/delete',['id'=>$catelist['id'],'tableName'=>'Category'])}" class="ajax-delete"><button type="button" class="btn btn-outline btn-warning btn-xs">删除</button></a>
+                                    </td>
+                                </tr>
+                            </volist>
+                            </tbody>
+                        </table>
+                    </div>
+                        <div style="text-align: center;">{$page}</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="__JS__/http/ajax.js"></script>
+</block>

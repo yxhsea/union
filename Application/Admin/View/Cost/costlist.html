@@ -1,0 +1,67 @@
+<extend name="Public/common" />
+<block name="body">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>经费列表</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-sm-3" style="float: right;">
+                            <!-- <div class="input-group">
+                                <input type="text" placeholder="请输入" class="input-sm form-control"> <span class="input-group-btn">
+                                <button type="button" class="btn btn-sm btn-primary"> 搜索</button> </span>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th>会员姓名</th>
+                                <th>身份证号码</th>
+                                <th>会费</th>
+                                <th>创建时间</th>
+                                <th>备注</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <volist name="costlist" id="costlist">
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" class="i-checks" name="id[]" value="{$costlist.id}">
+                                    </td>
+                                    <td>{$costlist.member_name}</td>
+                                    <td>
+                                        {$costlist.id_card}
+                                    </td>
+                                    <td>
+                                        ￥{$costlist.member_cost}
+                                    </td>
+                                    <td>
+                                        {$costlist.create_time|date="Y-m-d H:i:s",###}
+                                    </td>
+                                    <td>
+                                        {$costlist.note}
+                                    </td>
+                                    <td>
+                                        <a href="{:U('Cost/delete',['id'=>$costlist['id'],'tableName'=>'Cost'])}" class="ajax-delete"><button type="button" class="btn btn-outline btn-warning btn-xs">删除</button></a>                                    </td>
+                                    </td>
+                                </tr>
+                            </volist>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="text-align: center;">{$page}</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="__JS__/http/ajax.js"></script>
+</block>

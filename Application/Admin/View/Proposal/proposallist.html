@@ -1,0 +1,132 @@
+<extend name="Public/common" />
+<block name="body">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>提案列表</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-sm-3" style="float: right;">
+                            <!-- <div class="input-group">
+                                <input type="text" placeholder="请输入主题" class="input-sm form-control"> <span class="input-group-btn">
+                                <button type="button" class="btn btn-sm btn-primary"> 搜索</button> </span>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th>主题</th>
+                                <th>时间</th>
+                                <th>案由</th>
+                                <th>提案人</th>
+                                <th>所在部门</th>
+                                <th>联系电话</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <volist name="proposallist" id="proposallist">
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" class="i-checks" name="id[]" value="{$proposallist.id}">
+                                    </td>
+                                    <td>{$proposallist.theme}</td>
+                                    <td>
+                                        {$proposallist.time}
+                                    </td>
+                                    <td>
+                                        {$proposallist.reason}
+                                    </td>
+                                    <td>
+                                        {$proposallist.header}
+                                    </td>
+                                    <td>
+                                        {$proposallist.department}
+                                    </td>
+                                    <td>
+                                        {$proposallist.phone}
+                                    </td>
+                                    <td>
+                                        <a href="{:U('Proposal/detailProposal',['id'=>$proposallist['id']])}"><button type="button" class="btn btn-outline btn-primary btn-xs">详情</button></a>
+                                        <a href="{:U('Proposal/editProposal',['id'=>$proposallist['id']])}"><button type="button" class="btn btn-outline btn-default btn-xs">编辑</button></a>
+                                        <button type="button" class="btn btn-outline btn-warning btn-xs" onclick="remove({$newslist.id})">移除</button>
+                                    </td>
+                                </tr>
+                            </volist>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="text-align: center;">{$page}</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+    var disenable;
+    var enable;
+    $(document).ready(function(){
+        $(".i-checks").iCheck({
+            checkboxClass:"icheckbox_square-green",
+            radioClass:"iradio_square-green",
+        });
+
+        disenable = function(data){
+                var id = data;
+                $.ajax({
+                    url:"{:U('News/setStatus')}",
+                    type:'post',
+                    data:{'id':id,'status':1,'tableName':'category'},
+                    complete:refresh,
+                    success:function(data){
+                        //console.log(data);
+                        if(data.status == 1){
+                            delay('禁用成功');
+                        }else{
+                            delay('禁用失败');
+                        }
+                    }
+                });
+        }
+
+        enable = function(data){
+                var id = data;
+                $.ajax({
+                    url:"{:U('News/setStatus')}",
+                    type:'post',
+                    data:{'id':id,'status':0,'tableName':'category'},
+                    complete:refresh,
+                    success:function(data){
+                        //console.log(data);
+                        if(data.status == 1){
+                            delay('启用成功');
+                        }else{
+                            delay('启用失败');
+                        }
+                    }
+                });
+        }
+
+        //刷新当前页面
+        function refresh(){
+            setTimeout(function(){
+                window.location.reload();
+            },1000);
+        }
+
+        //延时1s
+        function delay($msg){
+            setTimeout(function(){
+                layer.msg($msg);
+            },0);
+        }
+    });
+</script>
+</block>

@@ -1,0 +1,92 @@
+<extend name="Public/common" />
+<block name="body">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>用户列表</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-sm-3" style="float: right;">
+                            <!-- <div class="input-group">
+                                <input type="text" placeholder="请输入用户名" class="input-sm form-control"> <span class="input-group-btn">
+                                <button type="button" class="btn btn-sm btn-primary"> 搜索</button> </span>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th>ID</th>
+                                <th>用户名</th>
+                                <th>角色</th>
+                                <th>最后登录IP</th>
+                                <th>最后登录时间</th>
+                                <th>创建时间</th>
+                                <th>修改时间</th>
+                                <th>状态</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <volist name="userlist" id="userlist">
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" class="i-checks" name="id[]" value="{$userlist.id}">
+                                    </td>
+                                    <td>{$userlist.id}</td>
+                                    <td>{$userlist.username}</td>
+                                    <td>{$userlist.name}</td>
+                                    <td>
+                                        {$userlist.last_login_ip}
+                                    </td>
+                                    <td>
+                                        <if condition="($userlist['last_login_time'] neq '')">{$userlist.last_login_time|date="Y-m-d H:i:s",###}</if>
+                                    </td>
+                                    <td>
+                                        {$userlist.create_time|date="Y-m-d H:i:s",###}
+                                    </td>
+                                    <td>
+                                        <if condition="($userlist['update_time'] eq '')">
+                                            暂无记录
+                                            <else/>
+                                            {$userlist.create_time|date="Y-m-d H:i:s",###}
+                                        </if>
+                                    </td>
+                                    <td>
+                                        <if condition="($userlist['status'] eq 0)"><span style="color:green;">启用</span></if>
+                                        <if condition="($userlist['status'] eq 1)"><span style="color:red;">禁用</span></if>
+                                    </td>
+                                    <if condition="($userlist['id'] neq 1)">
+                                        <td>
+                                            <if condition="$userlist['status'] eq 0">
+                                                <a href="{:U('User/setStatus',['id'=>$userlist['id'],'tableName'=>'Admin','status'=>1])}" class="ajax-status"><button type="button" class="btn btn-outline btn-danger btn-xs">禁用</button></a>
+                                                <else/>
+                                                <a href="{:U('User/setStatus',['id'=>$userlist['id'],'tableName'=>'Admin','status'=>0])}" class="ajax-status"><button type="button" class="btn btn-outline btn-primary btn-xs">启用</button></a>
+                                            </if>
+                                            <a href="{:U('User/edituser',['id'=>$userlist['id']])}"><button type="button" class="btn btn-outline btn-default btn-xs">编辑</button></a>
+                                            <a href="{:U('User/delete',['id'=>$userlist['id'],'tableName'=>'Admin'])}" class="ajax-delete"><button type="button" class="btn btn-outline btn-warning btn-xs">删除</button></a>                                    </td>
+                                        </td>
+                                    <else/>
+                                        <td>
+                                            <span style="color: red;">不能操作超级管理员!</span>
+                                        </td>
+                                    </if>
+                                </tr>
+                            </volist>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="text-align: center;">{$page}</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="__JS__/http/ajax.js"></script>
+</block>

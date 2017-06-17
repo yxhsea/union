@@ -1,0 +1,65 @@
+<extend name="Public/common" />
+<block name="body">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>站点配置</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">版权信息</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="copyright" value="{$config.copyright}" placeholder="请填写版权信息" id="copyright">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">ICP备案号</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="icp" value="{$config.icp}" placeholder="请填写ICP备案号" id="icp">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">统计代码</label>
+
+                            <div class="col-sm-10">
+                                <textarea  type="text" class="form-control" name="count" value="{$config.count}" placeholder="请填写统计代码" id="count">{$config.count}</textarea>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <div class="col-sm-4 col-sm-offset-2">
+                                <button class="btn btn-primary" id="save">保存内容</button>
+                                <button class="btn btn-white" type="button" onclick="reset();">重置</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    //定义全局变量
+    var GV = {
+        system_siteconfig : "{:U('System/siteConfig')}"
+    };
+
+    //重置操作
+    function reset(){
+        $("input[name='copyright']").val("");
+        $("input[name='icp']").val("");
+        $("#count").val("");
+    }
+</script>
+<script src="__JS__/http/system/siteconfig.js"></script>
+</block>

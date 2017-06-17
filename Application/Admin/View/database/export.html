@@ -1,0 +1,86 @@
+<extend name="Public/common" />
+<block name="body">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>备份数据</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="row">
+                            <div class="col-sm-5 m-b-xs">
+                                <a href="javascript:;" autocomplete="off">
+                                    <button id="export" class="btn btn-primary" type="button"><i class="fa fa-database"></i>&nbsp;立即备份</button>
+                                </a>
+                                <a  id="optimize" href="{:U('Database/optimize')}">
+                                    <button class="btn btn-success" type="button"><i class="fa fa-fire"></i>&nbsp;优化表</button>
+                                </a>
+                                <a id="repair" href="{:U('Database/repair')}">
+                                    <button class="btn btn-info" type="button"><i class="fa fa-wrench"></i>&nbsp;修复表</button>
+                                </a>
+                            </div>
+                            <div class="col-sm-3" style="float: right;">
+                                <div class="input-group">
+                                    <input type="text" placeholder="请输入表名" class="input-sm form-control"> <span class="input-group-btn">
+                                <button type="button" class="btn btn-sm btn-primary"> 搜索</button> </span>
+                                </div>
+                            </div>
+                        </div>
+                        <form id="export-form" method="post" action="{:U('export')}">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th>
+                                        <input class="i-checks" checked="chedked" type="checkbox" value="">
+                                        <!--<input type="checkbox" class="i-checks" name="id[]" value="{$table.id}">-->
+                                    </th>
+                                    <th>表名</th>
+                                    <th>数据量</th>
+                                    <th>数据大小</th>
+                                    <th>创建时间</th>
+                                    <th>备份状态</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <volist name="list" id="table">
+                                    <tr>
+                                        <!--<td class="num">
+                                            <input type="checkbox" class="i-checks" name="id[]" value="{$table.id}">
+                                            <input class="i-checks" checked="chedked" type="checkbox" name="tables[]" value="{$table.name}">
+                                        </td>-->
+                                        <td class="num">
+                                            <input class="i-checks ids" checked="chedked" type="checkbox" name="tables[]" value="{$table.name}">
+                                        </td>
+                                        <td>{$table.name}</td>
+                                        <td>
+                                            {$table.rows}
+                                        </td>
+                                        <td>
+                                            {$table.data_length|format_bytes}
+                                        </td>
+                                        <td>
+                                            {$table.create_time}
+                                        </td>
+                                        <td class="info">未备份</td>
+                                        <td>
+                                            <a href="{:U('Database/optimize',['tables'=>$table['name']])}" class="ajax-get"><button type="button" class="btn btn-outline btn-primary btn-xs">优化表</button></a>
+                                            <a href="{:U('Database/repair',['tables'=>$table['name']])}" class="ajax-get"><button type="button" class="btn btn-outline btn-default btn-xs">修复表</button></a>
+                                        </td>
+                                    </tr>
+                                </volist>
+                                </tbody>
+                            </table>
+                        </div>
+                        </form>
+                        <div style="text-align: center;">{$page}</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+<script type="text/javascript" src="__JS__/http/database/export.js"></script>
+</block>

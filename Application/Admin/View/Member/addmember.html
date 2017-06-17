@@ -1,0 +1,263 @@
+<extend name="Public/common" />
+<block name="body">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>新增会员</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">会员姓名</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="name" placeholder="请填写会员姓名" id="name">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">上传寸照</label>
+                            <div class="col-sm-10">
+                                <!--dom结构部分-->
+                                <div id="uploader-demo">
+                                    <!--用来存放item-->
+                                    <div id="fileList" class="uploader-list" style="width:100px;"></div>
+                                    <div id="filePicker"><i class="fa fa-upload"></i> 选择照片</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">
+                                会员性别
+                            </label>
+
+                            <div class="col-sm-10">
+                                <div class="radio i-checks">
+                                    <label><input type="radio" value="0" name="sex" checked="checked"> <i></i> 男</label>
+                                    <label><input type="radio" value="1" name="sex"> <i></i>女</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">民族</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="national" placeholder="请填写民族" id="national">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">籍贯</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="native_place" placeholder="请填写籍贯" id="native_place">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">出生日期</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="birthday" placeholder="请填写出生日期" id="birthday"  onclick="laydate();">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">政治面貌</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="political" placeholder="请填写政治面貌" id="political">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">专业</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="professional" placeholder="请填写专业" id="professional">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">毕业院校</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="college" placeholder="请填写毕业院校" id="college">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">邮编</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="zip_code" placeholder="请填写邮编" id="zip_code">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">邮箱</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="email" placeholder="请填写邮箱" id="email">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">个人简介</label>
+
+                            <div class="col-sm-10">
+                                <textarea type="text" class="form-control" name="introduct" placeholder="请填写个人简介" id="introduct"></textarea>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+<!--                        <div class="form-group">
+                            <label class="col-sm-2 control-label">照片</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="picture " placeholder="请填写个人简介" id="picture">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>-->
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">身份证号码</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="id_card" placeholder="请填写身份证号码" id="id_card">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">身份证有效期</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control layer-date" name="card_start " placeholder="身份证开始时间" id="start">
+                                <input type="text" class="form-control layer-date" name="card_end" placeholder="身份证到期时间" id="end">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">单位编码</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="unit_code" placeholder="请填写单位编码" id="unit_code">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">所属单位</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="unit" placeholder="请填写所属单位" id="unit">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">学历</label>
+
+                            <div class="col-sm-10">
+                                <div class="radio i-checks">
+                                    <label><input type="radio" value="0" name="school" checked="checked"> <i></i> 小学</label>
+                                    <label><input type="radio" value="1" name="school"> <i></i> 初中</label>
+                                    <label><input type="radio" value="2" name="school"> <i></i> 高中</label>
+                                    <label><input type="radio" value="3" name="school"> <i></i> 中专</label>
+                                    <label><input type="radio" value="4" name="school"> <i></i> 大专</label>
+                                    <label><input type="radio" value="5" name="school"> <i></i> 本科</label>
+                                    <label><input type="radio" value="6" name="school"> <i></i> 研究生</label>
+                                    <label><input type="radio" value="7" name="school"> <i></i> 博士</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">就业状态</label>
+
+                            <div class="col-sm-10">
+                                <div class="radio i-checks">
+                                    <label><input type="radio" value="0" name="employ" checked="checked"> <i></i> 待业</label>
+                                    <label><input type="radio" value="1" name="employ"> <i></i>在职</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">外来务工人员</label>
+
+                            <div class="col-sm-10">
+                                <div class="radio i-checks">
+                                    <label><input type="radio" value="1" name="migrant" checked="checked"> <i></i> 是</label>
+                                    <label><input type="radio" value="0" name="migrant"> <i></i>否</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">联系电话</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="phone" placeholder="请填写联系电话" id="phone">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">入会时间</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control layer-date" name="come_time" placeholder="请填写入会时间" id="come_time"  onclick="laydate();">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">现居住地</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="address_now" placeholder="请填写居住地" id="address_now">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <div class="col-sm-4 col-sm-offset-2">
+                                <button class="btn btn-primary" id="save">保存内容</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    //定义全局变量
+    var GV = {
+        member_addmember : "{:U('Member/addMember')}"
+    };
+</script>
+<script src="__JS__/http/member/addmember.js"></script>
+<script src="__JS__/http/upload.js"></script>
+</block>

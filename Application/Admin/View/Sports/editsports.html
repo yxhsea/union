@@ -1,0 +1,105 @@
+<extend name="Public/common" />
+<block name="body">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>编辑运动会</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="form-horizontal">
+                        <input type="hidden" name="sports_id" value="{$sports.id}">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">运动会主题</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="theme" value="{$sports.theme}" placeholder="请填写运动会主题" id="theme">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">主办方</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="host" value="{$sports.host}" placeholder="请填写运动会主办方" id="host">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">承办方</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="undertake" value="{$sports.undertake}" placeholder="请填写运动会承办方" id="undertake">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">运动会时间</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control layer-date" name="start_time" value="{$sports.start_time}" placeholder="运动会开始时间" id="start">
+                                <input type="text" class="form-control layer-date" name="end_time" value="{$sports.end_time}" placeholder="运动会结束时间" id="end">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">运动会地点</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="address" value="{$sports.address}" placeholder="请填写运动会地点" id="address">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">负责人</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="header" value="{$sports.header}" placeholder="请填写运动会负责人" id="header">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">负责人联系方式</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="phone" value="{$sports.phone}" placeholder="请填写运动会负责人联系方式" id="phone">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">运动会简介</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control layer-date" name="introduct" value="{$sports.introduct}" placeholder="请填写运动会简介" id="introduct">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <div class="col-sm-4 col-sm-offset-2">
+                                <button class="btn btn-primary" id="save">保存内容</button>
+                                <button class="btn btn-white" type="button" onclick="history.go(-1);">返回</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    //定义全局变量
+    var GV = {
+        sports_editsporst : "{:U('Sports/editSports')}"
+    };
+</script>
+<script src="__JS__/http/sports/editsports.js"></script>
+</block>

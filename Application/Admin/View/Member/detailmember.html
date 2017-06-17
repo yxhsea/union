@@ -1,0 +1,130 @@
+<extend name="Public/common" />
+<block name="body">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>会员详情</h5>
+                <div class="ibox-tools">
+                    <!--<a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="table_basic.html#">
+                        <i class="fa fa-wrench"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="table_basic.html#">选项1</a>
+                        </li>
+                        <li><a href="table_basic.html#">选项2</a>
+                        </li>
+                    </ul>
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>-->
+                    <button type="button" class="btn btn-outline btn-primary btn-xs" onclick="history.go(-1);">返回</button>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <table class="table table-bordered" style="width: 80%;margin: auto;">
+                    <thead>
+                        <tr>
+                            <th colspan="5"  style="text-align: center;">会员{$member.name}基本信息</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th>姓名</th>
+                        <td>{$member.name}</td>
+                        <th>性别</th>
+                        <td>
+                            <if condition="($member['sex'] eq 0)">男</if>
+                            <if condition="($member['sex'] eq 1)">女</if>
+                        </td>
+                        <th rowspan="4" style="width: 100px;">
+                            <img src="{:getImage($member['picture'])}" style="width:100px;"/>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>民族</th>
+                        <td>{$member.national}</td>
+                        <th>籍贯</th>
+                        <td>{$member.native_place}</td>
+                    </tr>
+                    <tr>
+                        <th>出生日期</th>
+                        <td>{$member.birthday}</td>
+                        <th>政治面貌</th>
+                        <td>{$member.political}</td>
+                    </tr>
+                    <tr>
+                        <th>学历</th>
+                        <td>
+                            <if condition="($member['school'] eq 0)">小学</if>
+                            <if condition="($member['school'] eq 1)">初中</if>
+                            <if condition="($member['school'] eq 2)">高中</if>
+                            <if condition="($member['school'] eq 3)">中专</if>
+                            <if condition="($member['school'] eq 4)">大专</if>
+                            <if condition="($member['school'] eq 5)">本科</if>
+                            <if condition="($member['school'] eq 6)">研究生</if>
+                            <if condition="($member['school'] eq 7)">博士</if>
+                        </td>
+                        <th>专业</th>
+                        <td>{$member.professional}</td>
+                    </tr>
+                    <tr>
+                        <th>毕业院校</th>
+                        <td>{$member.college}</td>
+                        <th>联系电话</th>
+                        <td colspan="2">{$member.phone}</td>
+                    </tr>
+                    <tr>
+                        <th>身份证号码</th>
+                        <td>{$member.id_card}</td>
+                        <th>身份证有效期</th>
+                        <td colspan="2">{$member.card_start}至{$member.card_end}</td>
+                    </tr>
+                    <tr>
+                        <th>现居住址</th>
+                        <td>{$member.address_now}</td>
+                        <th>入会时间</th>
+                        <td colspan="2">{$member.come_time}</td>
+                    </tr>
+                    <tr>
+                        <th>邮编</th>
+                        <td>{$member.zip_code}</td>
+                        <th>邮箱</th>
+                        <td colspan="2">{$member.email}</td>
+                    </tr>
+                    <tr>
+                        <th>单位编码</th>
+                        <td>{$member.unit_code}</td>
+                        <th>所属单位</th>
+                        <td colspan="2">{$member.unit}</td>
+                    </tr>
+                    <tr>
+                        <th>就业状态</th>
+                        <td>
+                            <if condition="($member['employ'] eq 0)">待业</if>
+                            <if condition="($member['employ'] eq 1)">在职</if>
+                        </td>
+                        <th>外来务工人员</th>
+                        <td colspan="2">
+                            <if condition="($member['migrant'] eq 0)">否</if>
+                            <if condition="($member['migrant'] eq 1)">是</if>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>个人简介</th>
+                        <td colspan="4">{$member.introduct}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</block>
+<script>
+    $(document).ready(function(){$(".i-checks").iCheck({checkboxClass:"icheckbox_square-green",radioClass:"iradio_square-green",})});
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>

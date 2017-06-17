@@ -1,0 +1,61 @@
+<extend name="Public/common" />
+<block name="body">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="ibox float-e-margins">
+        <div class="ibox-content">
+            <div class="" style="text-align: center;">
+                <h3>
+                    电子提案详情
+                </h3>
+            </div>
+            <table class="table table-hover">
+                <tbody>
+                <tr>
+                    <th>主题</th>
+                    <td>{$proposal.theme}</td>
+                </tr>
+                <tr>
+                    <th>时间</th>
+                    <td>{$proposal.time}</td>
+                </tr>
+                <tr>
+                    <th>
+                       案由
+                    </th>
+                    <td>{$proposal.reason}</td>
+                </tr>
+                <tr>
+                    <th>
+                        审查意见
+                    </th>
+                    <td>{$proposal.opinions}</td>
+                </tr>
+                <tr>
+                    <th>
+                        提案人
+                    </th>
+                    <td>{$proposal.header}</td>
+                </tr>
+                <tr>
+                    <th>所在部门</th>
+                    <td>{$proposal.department}</td>
+                </tr>
+                <tr>
+                    <th>联系电话</th>
+                    <td>{$proposal.phone}</td>
+                </tr>
+                <tr>
+                    <th>内容</th>
+                    <td>{$proposal.content}</td>
+                </tr>
+                <tr>
+                    <th>解决方案</th>
+                    <td>{$proposal.solution}</td>
+                </tr>
+                </tbody>
+            </table>
+            <button type="button" class="btn btn-outline btn-primary btn-xs" onclick="history.go(-1);">返回</button>
+        </div>
+    </div>
+</div>
+</block>

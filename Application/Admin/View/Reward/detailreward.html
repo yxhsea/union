@@ -1,0 +1,60 @@
+<extend name="Public/common" />
+<block name="body">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="ibox float-e-margins">
+        <div class="ibox-content">
+            <div class="" style="text-align: center;">
+                <h3>
+                    <if condition="$reward.type eq 0">奖励记录详情</if>
+                    <if condition="$reward.type eq 1">处罚记录详情</if>
+                </h3>
+            </div>
+            <table class="table table-hover">
+                <tbody>
+                <tr>
+                    <th>身份证号码</th>
+                    <td>{$reward.member_id_card}</td>
+                </tr>
+                <tr>
+                    <th>会员姓名</th>
+                    <td>{$reward.member_name}</td>
+                </tr>
+                <tr>
+                    <th>
+                        <if condition="$reward.type eq 0">奖励时间</if>
+                        <if condition="$reward.type eq 1">处罚时间</if>
+                    </th>
+                    <td>{$reward.reward_time}</td>
+                </tr>
+                <tr>
+                    <th>
+                        <if condition="$reward.type eq 0">奖励级别</if>
+                        <if condition="$reward.type eq 1">处罚级别</if>
+                    </th>
+                    <td>{$reward.reward_level}</td>
+                </tr>
+                <tr>
+                    <th>
+                        <if condition="$reward.type eq 0">授予单位</if>
+                        <if condition="$reward.type eq 1">处罚单位</if>
+                    </th>
+                    <td>{$reward.reward_unit}</td>
+                </tr>
+                <tr>
+                    <th>
+                        <if condition="$reward.type eq 0">授予原因</if>
+                        <if condition="$reward.type eq 1">处罚原因</if>
+                    </th>
+                    <td>{$reward.reward_reason}</td>
+                </tr>
+                <tr>
+                    <th>备注</th>
+                    <td>{$reward.reward_note}</td>
+                </tr>
+                </tbody>
+            </table>
+            <button type="button" class="btn btn-outline btn-primary btn-xs" onclick="history.go(-1);">返回</button>
+        </div>
+    </div>
+</div>
+</block>

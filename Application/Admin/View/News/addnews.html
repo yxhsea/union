@@ -1,0 +1,103 @@
+<extend name="Public/common" />
+<block name="body">
+<div class="wrapper wrapper-content">
+    <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>发布新闻</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">新闻标题</label>
+
+                                <div class="col-sm-10">
+                                    <input type="text" placeholder="请输入新闻标题" class="form-control" name="title" id="title">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">新闻作者</label>
+
+                                <div class="col-sm-10">
+                                    <input type="text" placeholder="请输入新闻作者" class="form-control" name="author" id="author">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">新闻分类</label>
+
+                                <div class="col-sm-10">
+                                    <select class="form-control m-b" name="cate_id" id="cate_id">
+                                        <volist name="cate" id="cate">
+                                            <option value="{$cate.id}">{$cate.level}{$cate.title}</option>
+                                        </volist>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">新闻内容</label>
+                                <div class="col-sm-10">
+                                    <div class="summernote" id="content">
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    新闻标签
+                                </label>
+
+                                <div class="col-sm-10">
+                                    <div class="radio i-checks">
+                                        <label><input type="radio" value="0" name="label" checked="checked"> <i></i> 普通</label>
+                                        <label><input type="radio" value="1" name="label"> <i></i> 置顶</label>
+                                        <label><input type="radio" value="2" name="label"> <i></i> 推荐</label>
+                                        <label><input type="radio" value="3" name="label"> <i></i> 热点</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    新闻状态
+                                </label>
+
+                                <div class="col-sm-10">
+                                    <div class="radio i-checks">
+                                        <label><input type="radio" value="0" name="status" checked="checked"> <i></i> 启用</label>
+                                        <label><input type="radio" value="1" name="status"> <i></i> 禁用</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <div class="col-sm-4 col-sm-offset-2">
+                                    <button class="btn btn-primary" type="submit" id="save">保存内容</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+<script>
+    //定义全局变量
+    var GV = {
+        news_addnews : "{:U('news/addnews')}"
+    };
+</script>
+<script src="__JS__/http/news/addnews.js"></script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+</block>

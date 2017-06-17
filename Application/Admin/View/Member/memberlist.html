@@ -1,0 +1,85 @@
+<extend name="Public/common" />
+<block name="body">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>会员列表</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-sm-3" style="float: right;">
+                            <!-- <div class="input-group">
+                                <input type="text" placeholder="请输入姓名" class="input-sm form-control"> <span class="input-group-btn">
+                                <button type="button" class="btn btn-sm btn-primary"> 搜索</button> </span>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th>姓名</th>
+                                <th>性别</th>
+                                <th>身份证号码</th>
+                                <th>学历</th>
+                                <th>所属单位</th>
+                                <th>联系方式</th>
+                                <th>入会时间</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <volist name="memberlist" id="memberlist">
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" class="i-checks" name="id[]" value="{$memberlist.id}">
+                                    </td>
+                                    <td>{$memberlist.name}</td>
+                                    <td>
+                                        <if condition="($memberlist['sex'] == 0)"> 男 </if>
+                                        <if condition="($memberlist['sex'] == 1)"> 女 </if>
+                                    </td>
+                                    <td>
+                                        {$memberlist.id_card}
+                                    </td>
+                                    <td>
+                                        <if condition="($memberlist['school'] == 0)"> 小学 </if>
+                                        <if condition="($memberlist['school'] == 1)"> 初中 </if>
+                                        <if condition="($memberlist['school'] == 2)"> 高中 </if>
+                                        <if condition="($memberlist['school'] == 3)"> 中专 </if>
+                                        <if condition="($memberlist['school'] == 4)"> 大专 </if>
+                                        <if condition="($memberlist['school'] == 5)"> 本科 </if>
+                                        <if condition="($memberlist['school'] == 6)"> 研究生 </if>
+                                        <if condition="($memberlist['school'] == 7)"> 博士 </if>
+                                    </td>
+                                    <td>
+                                        {$memberlist.unit}
+                                    </td>
+                                    <td>
+                                        {$memberlist.phone}
+                                    </td>
+                                    <td>
+                                        {$memberlist.come_time}
+                                    </td>
+                                    <td>
+                                        <a href="{:U('Member/detailMember',['id'=>$memberlist['id']])}"><button type="button" class="btn btn-outline btn-primary btn-xs">详情</button></a>
+                                        <a href="{:U('Member/editMember',['id'=>$memberlist['id']])}"><button type="button" class="btn btn-outline btn-default btn-xs">编辑</button></a>
+                                        <a href="{:U('User/delete',['id'=>$memberlist['id'],'tableName'=>'Member'])}" class="ajax-delete"><button type="button" class="btn btn-outline btn-warning btn-xs">删除</button></a>                                    </td>
+                                    </td>
+                                </tr>
+                            </volist>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="text-align: center;">{$page}</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="__JS__/http/ajax.js"></script>
+</block>

@@ -1,0 +1,111 @@
+<extend name="Public/common" />
+<block name="body">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>新增电子提案</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">提案主题</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="theme" placeholder="请填写提案主题" id="theme">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">提案时间</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="time" placeholder="请填写提案时间" id="time" onclick="laydate();">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">案由</label>
+
+                            <div class="col-sm-10">
+                                <textarea type="text" class="form-control" name="reason" placeholder="请填写案由" id="reason"></textarea>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">审查意见</label>
+
+                            <div class="col-sm-10">
+                                <textarea type="text" class="form-control" name="opinions" placeholder="请填写提案审查意见" id="opinions"></textarea>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">提案人</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="header" placeholder="请填写提案人" id="header">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">所在部门</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="department" placeholder="请填写提案人所在部门" id="department">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">联系电话</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="phone" placeholder="请填写提案人联系电话" id="phone">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">提案内容</label>
+
+                            <div class="col-sm-10">
+                                <textarea type="text" class="form-control" name="content" placeholder="请填写提案内容" id="content"></textarea>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">解决方案</label>
+
+                            <div class="col-sm-10">
+                                <textarea type="text" class="form-control" name="solution" placeholder="请填写提案解决方案" id="solution"></textarea>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <div class="col-sm-4 col-sm-offset-2">
+                                <button class="btn btn-primary" id="save">保存内容</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    //定义全局变量
+    var GV = {
+        proposal_addproposal : "{:U('Proposal/addProposal')}"
+    };
+</script>
+<script src="__JS__/http/proposal/addproposal.js"></script>
+</block>

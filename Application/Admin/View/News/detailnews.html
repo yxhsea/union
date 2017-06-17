@@ -1,0 +1,25 @@
+<extend name="Public/common" />
+<block name="body">
+<div class="wrapper wrapper-content  animated fadeInRight article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="pull-right">
+                        <span class="badge badge-success">Author {$detailnews.author}</span>
+                        <span class="badge badge-primary">Time {$detailnews.create_time|date="Y-m-d H:i:s",###}</span>
+                        <button type="button" class="btn btn-outline btn-primary btn-xs" onclick="history.go(-1);">返回</button>
+                    </div>
+                    <div class="text-center article-title">
+                        <h1>
+                           {$detailnews.title}
+                        </h1>
+                    </div>
+                           {$detailnews.content}
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</block>

@@ -10,4 +10,4 @@
 - 用户管理模块
 - 权限管理模块
 - 系统管理模块
-- 项目的访问路径是：http://localhost/union/admin.php/login/index.html
+- 项目的访问路径是：http://localhost/union/admin.php/login/index.html 默认账号：admin 密码：admin
